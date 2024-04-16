@@ -11,12 +11,12 @@ public class CameraTrack : MonoBehaviour
     public float height;
     public float speed;
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
         Vector3 followpos = Lookat.position - Lookat.forward * traildistance;
         followpos.y += height;
-        transform.position += (followpos - transform.position) * speed;
+        transform.position += (followpos - transform.position);
 
         transform.LookAt(Lookat.position);
 
