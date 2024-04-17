@@ -13,6 +13,7 @@ public class TileGenerator : MonoBehaviour
     [SerializeField] private GameObject TurnRight;
     [SerializeField] private GameObject TurnLeft;
     [SerializeField] private GameObject ChoiceTile;
+    [SerializeField] private GameObject FinishTile;
     [SerializeField] private GameObject CurrentChoice;
     [SerializeField] private GameObject PreviousTile;
     [SerializeField] private float distanceBetweenTiles;
@@ -42,6 +43,7 @@ public class TileGenerator : MonoBehaviour
     {
         if (gameObject.GetComponent<GenreScript>().CurrentQuestions.Count == CurrentLevel)
         {
+            var SpawnedFinishTile = Instantiate(FinishTile,PreviousTile.transform.position + distanceBetweenLevels * PreviousTile.transform.forward,transform.rotation);
             //finish and spawn finish tiles
             GetComponent<TileGenerator>().enabled = false;
             Debug.Log("we finished");
@@ -70,6 +72,7 @@ public class TileGenerator : MonoBehaviour
                 //spawns choice tile
                 var SpawnedChoiceTile = Instantiate(ChoiceTile, PreviousTile.transform.position + distanceBetweenTiles * PreviousTile.transform.forward, PreviousTile.transform.rotation);
             PreviousTile = SpawnedChoiceTile;
+                SpawnedChoiceTile.GetComponent<ChoiceManager>().CurrentQuestion = gameObject.GetComponent<GenreScript>().CurrentQuestions[CurrentLevel];
             //left and right choice Tiles spawning and set vars
             Quaternion newrotationLeft = PreviousTile.transform.rotation * Quaternion.Euler(0, -90, 0);
             var LeftPlayerCheckTile = Instantiate(PlayerCheckTile, PreviousTile.transform.position + distanceBetweenTiles * (PreviousTile.transform.right * -1f), newrotationLeft);

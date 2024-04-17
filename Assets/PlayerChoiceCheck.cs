@@ -15,18 +15,23 @@ public class PlayerChoiceCheck : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            if (IsLeft)
+            if (IsLeft) //left is always false
             {
                 collision.gameObject.GetComponent<PlayerController>().Teleport(ChoiceTile.GetComponent<ChoiceManager>().Left.transform);
                 collision.gameObject.GetComponent<PlayerController>().RespawnPoint = ChoiceTile.GetComponent<ChoiceManager>().Left;
                 ChoiceTile.GetComponent<ChoiceManager>().DestroyRight();
+                collision.gameObject.GetComponent<PlayerController>().AddAnswer(false);
             }
-            if (IsRight)
+            if (IsRight) // right is always true
             {
+                collision.gameObject.GetComponent<PlayerController>().AddAnswer(true);
                 collision.gameObject.GetComponent<PlayerController>().Teleport(ChoiceTile.GetComponent<ChoiceManager>().Right.transform);
                 collision.gameObject.GetComponent<PlayerController>().RespawnPoint = ChoiceTile.GetComponent<ChoiceManager>().Right;
                 ChoiceTile.GetComponent<ChoiceManager>().DestoryLeft();
             }
+           
+
+
 
         }
     }

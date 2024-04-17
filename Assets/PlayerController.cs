@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float MovementSpeed;
     public float MovementIncrease = 1f;
 
+
+
     public int tilesran;
 
     public List<bool> PlayerAnswers;
@@ -24,26 +26,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
+        MovementInput = Input.GetAxis("Horizontal");
         transform.position += transform.forward * (MovementSpeed * MovementIncrease) * Time.deltaTime;
+    }
 
+    public void TurnLeft()
+    {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Quaternion currentrotation = transform.rotation;
             transform.rotation = (currentrotation * Quaternion.Euler(0f, -90f, 0f));
-
         }
+    }
+    public void TurnRight()
+    {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Quaternion currentrotation = transform.rotation;
             transform.rotation = (currentrotation * Quaternion.Euler(0f, 90f, 0f));
         }
-
-
-
     }
+
+
     public float ReturnMovementIncrease()
     {
         return MovementIncrease;
@@ -70,12 +74,19 @@ public class PlayerController : MonoBehaviour
             lives--;
             transform.position = RespawnPoint.transform.position;
         }
-       
+
     }
     public void Die()
     {
         string thisscene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(thisscene);
+    }
+
+    public void AddAnswer(bool answer)
+    {
+        PlayerAnswers.Add(answer);
+
+
     }
 
 }

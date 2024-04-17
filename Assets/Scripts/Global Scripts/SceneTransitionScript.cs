@@ -8,18 +8,19 @@ using UnityEngine.UI;
 public class SceneTransitionScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    
     void Start()
     {
         
     }
 
     // Update is called once per frame
-    public void TransitionToGameOverScene()
+    public void LoadSceneSingle(string scenename)
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        GameObject gameOverObject = GameObject.FindWithTag("GameOver");
-        GameOverScript gameOverScript = gameOverObject.GetComponent<GameOverScript>();
-        gameOverScript.SetPreviousScene(currentSceneName);
-        SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene(scenename);
+    }
+    public void LoadSceneAsync(string scenename)
+    {
+        SceneManager.LoadSceneAsync(scenename);
     }
 }
