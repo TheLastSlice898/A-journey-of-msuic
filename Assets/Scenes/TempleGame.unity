@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   RespawnPoint: {fileID: 6682586543294179096}
-  animator: {fileID: 0}
+  animator: {fileID: 966165331}
   MovementInput: 0
   MovementSpeed: 4
   MovementIncrease: 1
@@ -1004,15 +1004,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4740285548870817183, guid: 83ddee78a5141b944b61e4ad52032fb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 32.396843
+      value: 32.39679
       objectReference: {fileID: 0}
     - target: {fileID: 4740285548870817183, guid: 83ddee78a5141b944b61e4ad52032fb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 78.93069
+      value: 78.93068
       objectReference: {fileID: 0}
     - target: {fileID: 4740285548870817183, guid: 83ddee78a5141b944b61e4ad52032fb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -5.1842012
+      value: -5.1842027
       objectReference: {fileID: 0}
     - target: {fileID: 4867417641604051755, guid: 83ddee78a5141b944b61e4ad52032fb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1546,6 +1546,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3856407085683248289, guid: f6c7e6ade6b187849865a32aa7e2a204, type: 3}
+      propertyPath: FinishTile
+      value: 
+      objectReference: {fileID: 1470614603356458716}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

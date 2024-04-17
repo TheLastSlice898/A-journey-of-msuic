@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MovementInput = Input.GetAxis("Horizontal");
+        animator.SetFloat("Input", MovementInput);
         transform.position += transform.forward * (MovementSpeed * MovementIncrease) * Time.deltaTime;
     }
 
