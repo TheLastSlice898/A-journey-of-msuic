@@ -7,7 +7,6 @@ public class ChoiceManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI Text;
     public string CurrentQuestion;
-    public bool CorrectAnswer;
     public GameObject Left;
     public GameObject Right;
 

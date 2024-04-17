@@ -128,6 +128,7 @@ MonoBehaviour:
   TurnRight: {fileID: 5025238534170664119, guid: 5bfb3f58d0260174e8cb098aee3b1512, type: 3}
   TurnLeft: {fileID: 6719051003682370109, guid: aad17a53d0b2fd642a8064b426d838cb, type: 3}
   ChoiceTile: {fileID: 5249148576635092418, guid: 2543e15b27e0f9b4cbc21576565dd96c, type: 3}
+  FinishTile: {fileID: 0}
   CurrentChoice: {fileID: 0}
   PreviousTile: {fileID: 0}
   distanceBetweenTiles: 2
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df32d5bcbf417604e9fbd1a7de97a30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Chosengenre: 2
+  Chosengenre: 0
   JazzQuestions:
   - is Jazz cool
   - Is Jazz real
@@ -158,8 +159,9 @@ MonoBehaviour:
   JazzAnswers: 010101
   RockQuestions: []
   RockAnswers: 
-  PopQuestions: []
-  PopAnswers: 
+  PopQuestions:
+  - POP
+  PopAnswers: 01
   EDMQuestions: []
   EDMAnswers: 
   CurrentQuestionInt: 0

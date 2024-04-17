@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Head
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Master
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFoot_IK_L
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFoot_IK_L/BackFoot_IK_L_end
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFoot_IK_R
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFoot_IK_R/BackFoot_IK_R_end
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFootTarget_IK_L
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFootTarget_IK_L/BackFootTarget_IK_L_end
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFootTarget_IK_R
+    m_Weight: 0
+  - m_Path: Armature/Master/BackFootTarget_IK_R/BackFootTarget_IK_R_end
+    m_Weight: 0
+  - m_Path: Armature/Master/Chest
+    m_Weight: 0
+  - m_Path: Armature/Master/Chest/UpperChest.IK
+    m_Weight: 0
+  - m_Path: Armature/Master/Chest/UpperChest.IK/UpperChest.IK_end
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFoot_IK_L
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFoot_IK_L/FrontFoot_IK_L_end
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFoot_IK_R
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFoot_IK_R/FrontFoot_IK_R_end
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFootTarget_IK_L
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFootTarget_IK_L/FrontFootTarget_IK_L_end
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFootTarget_IK_R
+    m_Weight: 0
+  - m_Path: Armature/Master/FrontFootTarget_IK_R/FrontFootTarget_IK_R_end
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_L
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_L/BackLower_L
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_L/BackLower_L/BackLeg_L
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_L/BackLower_L/BackLeg_L/BackFoot_L
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_L/BackLower_L/BackLeg_L/BackFoot_L/BackFoot_L_end
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_R
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_R/BackLower_R
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_R/BackLower_R/BackLeg_R
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_R/BackLower_R/BackLeg_R/BackFoot_R
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/BackUpper_R/BackLower_R/BackLeg_R/BackFoot_R/BackFoot_R_end
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/Tail
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips/Tail/Tail_end
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips.IK
+    m_Weight: 0
+  - m_Path: Armature/Master/Hips.IK/Hips.IK_end
+    m_Weight: 0
+  - m_Path: Armature/Master/Spine
+    m_Weight: 0
+  - m_Path: Armature/Master/Spine/Spine_end
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/FrontUpper_L
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/FrontUpper_L/FrontLower_L
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/FrontUpper_L/FrontLower_L/FrontLeg_L
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/FrontUpper_L/FrontLower_L/FrontLeg_L/FrontFoot_L
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/FrontUpper_L/FrontLower_L/FrontLeg_L/FrontFoot_L/FrontFoot_L_end
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/FrontUpper_R
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/FrontUpper_R/FrontLower_R
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/FrontUpper_R/FrontLower_R/FrontLeg_R
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/FrontUpper_R/FrontLower_R/FrontLeg_R/FrontFoot_R
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/FrontUpper_R/FrontLower_R/FrontLeg_R/FrontFoot_R/FrontFoot_R_end
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/Neck
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/Neck/Head
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Ear_L
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Ear_L/Ear_L.001
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Ear_L/Ear_L.001/Ear_L.001_end
+    m_Weight: 1
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Ear_R
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Ear_R/Ear_R.001
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Ear_R/Ear_R.001/Ear_R.001_end
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Jaw
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Jaw/Jaw_end
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Nose
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head/Nose/Nose_end
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head.IK
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck/Head.IK/Head.IK_end
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck.rot
+    m_Weight: 0
+  - m_Path: Armature/Master/UpperChest/Neck.rot/Neck.rot_end
+    m_Weight: 0
+  - m_Path: Cube.001
+    m_Weight: 0

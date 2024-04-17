@@ -15,7 +15,7 @@ public class TileCheck : MonoBehaviour
         {
             iswalked = true;
             collision.gameObject.GetComponent<PlayerController>().Increasescre();
-            collision.gameObject.GetComponent<PlayerController>().MovementIncrease += 0.005f; 
+            collision.gameObject.GetComponent<PlayerController>().MovementIncrease += 0.004f; 
         }
     }
 

@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] private int lives;
+    public int lives;
     public GameObject RespawnPoint;
     [SerializeField] private Animator animator;
-    [SerializeField] private float MovementInput;
+    public float MovementInput;
     [SerializeField] private float MovementSpeed;
     public float MovementIncrease = 1f;
 
-
+  
 
     public int tilesran;
 
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MovementInput = Input.GetAxis("Horizontal");
         animator.SetFloat("Input", MovementInput);
@@ -33,19 +33,13 @@ public class PlayerController : MonoBehaviour
 
     public void TurnLeft()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Quaternion currentrotation = transform.rotation;
-            transform.rotation = (currentrotation * Quaternion.Euler(0f, -90f, 0f));
-        }
+        Quaternion currentrotation = transform.rotation;
+        transform.rotation = (currentrotation * Quaternion.Euler(0f, -90f, 0f));
     }
     public void TurnRight()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Quaternion currentrotation = transform.rotation;
-            transform.rotation = (currentrotation * Quaternion.Euler(0f, 90f, 0f));
-        }
+        Quaternion currentrotation = transform.rotation;
+        transform.rotation = (currentrotation * Quaternion.Euler(0f, 90f, 0f));
     }
 
 
@@ -73,7 +67,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             lives--;
-            transform.position = RespawnPoint.transform.position;
+            gameObject.transform.position = RespawnPoint.transform.position;
+            gameObject.transform.rotation = RespawnPoint.transform.rotation;
         }
 
     }
@@ -89,5 +84,4 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
 }

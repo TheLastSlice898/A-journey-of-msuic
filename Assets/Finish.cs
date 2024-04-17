@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class Finish : MonoBehaviour
+{
+    // Start is called before the first frame update
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+
+
+            EditorApplication.isPaused = true;
+
+        }
+    }
+
+}
