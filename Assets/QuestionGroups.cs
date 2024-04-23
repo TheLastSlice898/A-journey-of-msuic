@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Question", menuName = "Question Object Group", order = 1)]
 public class QuestionGroups : ScriptableObject
 {
+     public QuestionObject[] QuestionItems;
 
-    public QuestionObject[] JazzGroup;
-    public QuestionObject[] EDMGroup;
-    public QuestionObject[] RockGrpup;
-    public QuestionObject[] PopGroup;
-
-    public QuestionObject[] CurrentGroup;
     // Start is called before the first frame update
     void Start()
     {

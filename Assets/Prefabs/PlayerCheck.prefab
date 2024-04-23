@@ -200,6 +200,8 @@ MonoBehaviour:
   ChoiceTile: {fileID: 0}
   IsLeft: 0
   IsRight: 0
+  Right: {r: 0.32050014, g: 1, b: 0, a: 1}
+  Wrong: {r: 1, g: 0.11183022, b: 0, a: 1}
 --- !u!4 &1908996594364420881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ea6fcaf63242f846bfedbd794139aa3, type: 3}

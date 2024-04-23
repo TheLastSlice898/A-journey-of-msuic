@@ -23,4 +23,10 @@ public class SceneTransitionScript : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(scenename);
     }
+
+    public void LoadGame(QuestionGroups questionGroups)
+    {
+        SceneManager.LoadSceneAsync("TempleGame");
+        GameManager.instance.CurrentQuestionGroups = questionGroups;
+    }
 }

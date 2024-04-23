@@ -6,55 +6,31 @@ using UnityEngine;
 
 public class GenreScript : MonoBehaviour
 {
+    public QuestionGroups CurrentGroup;
 
-    public Genre Chosengenre;
-    
-    public string[] JazzQuestions;
-    public bool[] JazzAnswers;
-    public string[] RockQuestions;
-    public bool[] RockAnswers;
-    public string[] PopQuestions;
-    public bool[] PopAnswers;
-    public string[] EDMQuestions;
-    public bool[] EDMAnswers;
-
-    public int CurrentQuestionInt;
     public List<bool> CurrentAnswers;
     public List<string> CurrentQuestions;
 
-
-    private void Start()
+   
+    private void Awake()
     {
-        switch (Chosengenre) 
+        CurrentGroup = GameManager.instance.CurrentQuestionGroups;
+
+        CurrentAnswers = new List<bool>();
+        CurrentQuestions = new List<string>();
+
+        for (int i = 0; i < CurrentGroup.QuestionItems.Length; i++)
         {
-            case Genre.Jazz:
-                CurrentAnswers = JazzAnswers.ToList();
-                CurrentQuestions = JazzQuestions.ToList();
-                break;
-            case Genre.Rock:
-                CurrentAnswers = RockAnswers.ToList();
-                CurrentQuestions = RockQuestions.ToList();
-                break;
-            case Genre.Pop:
-                CurrentAnswers = PopAnswers.ToList();
-                CurrentQuestions = PopQuestions.ToList();
-                break;
-            case Genre.EDM:
-                CurrentAnswers = EDMAnswers.ToList();
-                CurrentQuestions = EDMQuestions.ToList();
-                break;
+            var Questionitem = CurrentGroup.QuestionItems[i];
+            CurrentAnswers.Add(Questionitem.yesorno);
+            CurrentQuestions.Add(Questionitem.Question);
+
         }
-
-          
     }
-    public enum Genre
+
+    public void SetGroup(QuestionGroups group)
     {
-        Pop,
-        Rock,
-        Jazz,
-        EDM,
+        CurrentGroup= group;
     }
-
-
     // Update is called once per frame
 }

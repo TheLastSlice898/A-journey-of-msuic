@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
     }
     public void Die()
     {
-        string thisscene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(thisscene);
+        
+        SceneManager.LoadScene("StartMenu");
     }
 
     public void AddAnswer(bool answer)

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5c925cd6661c84bb4162906469c19f, type: 3}
+  m_Name: Jazz
+  m_EditorClassIdentifier: 
+  QuestionItems:
+  - {fileID: 11400000, guid: e312a55513df77741a3b3abc2b858072, type: 2}
+  - {fileID: 11400000, guid: e1603d9055db66d45a49df7a42faa0a0, type: 2}
