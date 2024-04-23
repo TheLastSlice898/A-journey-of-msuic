@@ -7,12 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     public int lives;
+    [SerializeField] CameraTrack cam;
     public GameObject RespawnPoint;
     [SerializeField] private Animator animator;
     public float MovementInput;
     [SerializeField] private float MovementSpeed;
     public float MovementIncrease = 1f;
-
   
 
     public int tilesran;
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        cam.speed = MovementIncrease/10;
         MovementInput = Input.GetAxis("Horizontal");
         animator.SetFloat("Input", MovementInput);
         transform.position += transform.forward * (MovementSpeed * MovementIncrease) * Time.deltaTime;

@@ -50,31 +50,61 @@ public class TileGenerator : MonoBehaviour
     IEnumerator TileGeneration()
     {
         states = States.TileGenerating;
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         while (states == States.TileGenerating)
         {
-            float tiledirection = Random.Range(-1f,1f);
+            
             yield return null;
+        Loop:
+            float tiledirection = Random.Range(-1f, 1f);
+            Debug.Log(tilesBeforeTurn);
+            if (tilesBeforeTurn <= 0)
+            {
+                CanSpawnTurn = true;
+            }
+            if (TilesbeforeChoice == 0)
+            {
+                CanSpawnChoice = true;
+            }
+            if (CanSpawnChoice)
+            {
 
+                if (gameObject.GetComponent<GenreScript>().CurrentQuestions.Count > CurrentLevel)
+                // if the amount of questions is lower than the current level go to make next level
+                {
+                    //spawns choice tile
+                    SpawnHookTile();
+
+                    CanSpawnChoice = false;
+
+                    GetComponent<TileGenerator>().enabled = false;
+                    states = States.FinishedPath;
+                    goto end;
+
+                }
+            }
             if (tiledirection > 0.5 && CanSpawnTurn && turns > -1) //left
             {
                 SpawnLeftTurn();
+                
             }
             else // go forward
             {
                 SpawnStright();
-
+                
             }
 
             if (tiledirection < -0.5 && CanSpawnTurn && turns < 1) //right
             {
                 SpawnRightTurn();
+                
             }
             else // go forward
             {
                 SpawnStright();
-
+                
             }
+
             //Finished Spawned and Finished Coroutine
             if (gameObject.GetComponent<GenreScript>().CurrentQuestions.Count == CurrentLevel)
             {
@@ -83,14 +113,14 @@ public class TileGenerator : MonoBehaviour
                 GetComponent<TileGenerator>().enabled = false;
                 Debug.Log("we finished");
                 states = States.FinishedFinal;
-                
+                goto end;
             }
-
+            goto Loop;
 
 
         }
 
-
+    end:;
     }
 
     private void SpawnRightTurn()
@@ -132,76 +162,39 @@ public class TileGenerator : MonoBehaviour
         turns--;
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void SpawnHookTile()
     {
-        //Debug.Log(tiledirection);
-        if (tilesBeforeTurn == 0)
-        {
-            CanSpawnTurn = true;
-        }
-        if (TilesbeforeChoice == 0)
-        {
-            CanSpawnChoice = true;
-        }
+        states = States.FinishedPath;
 
-        if (CanSpawnChoice)
-        {
+        var SpawnedChoiceTile = Instantiate(ChoiceTile, PreviousTile.transform.position + distanceBetweenTiles * PreviousTile.transform.forward, PreviousTile.transform.rotation);
+        PreviousTile = SpawnedChoiceTile;
+        SpawnedChoiceTile.GetComponent<ChoiceManager>().CurrentQuestion = gameObject.GetComponent<GenreScript>().CurrentQuestions[CurrentLevel];
+        //left and right choice Tiles spawning and set vars
+        Quaternion newrotationLeft = PreviousTile.transform.rotation * Quaternion.Euler(0, -90, 0);
+        var LeftPlayerCheckTile = Instantiate(PlayerCheckTile, PreviousTile.transform.position + distanceBetweenTiles * (PreviousTile.transform.right * -1f), newrotationLeft);
+        LeftPlayerCheckTile.GetComponent<PlayerChoiceCheck>().IsLeft = true;
+        LeftPlayerCheckTile.GetComponent<PlayerChoiceCheck>().ChoiceTile = SpawnedChoiceTile;
 
-            if (gameObject.GetComponent<GenreScript>().CurrentQuestions.Count > CurrentLevel)
-            // if the amount of questions is lower than the current level go to make next level
-            {
-                //spawns choice tile
-                var SpawnedChoiceTile = Instantiate(ChoiceTile, PreviousTile.transform.position + distanceBetweenTiles * PreviousTile.transform.forward, PreviousTile.transform.rotation);
-                PreviousTile = SpawnedChoiceTile;
-                SpawnedChoiceTile.GetComponent<ChoiceManager>().CurrentQuestion = gameObject.GetComponent<GenreScript>().CurrentQuestions[CurrentLevel];
-                //left and right choice Tiles spawning and set vars
-                Quaternion newrotationLeft = PreviousTile.transform.rotation * Quaternion.Euler(0, -90, 0);
-                var LeftPlayerCheckTile = Instantiate(PlayerCheckTile, PreviousTile.transform.position + distanceBetweenTiles * (PreviousTile.transform.right * -1f), newrotationLeft);
-                LeftPlayerCheckTile.GetComponent<PlayerChoiceCheck>().IsLeft = true;
-                LeftPlayerCheckTile.GetComponent<PlayerChoiceCheck>().ChoiceTile = SpawnedChoiceTile;
+        Quaternion newrotationRight = PreviousTile.transform.rotation * Quaternion.Euler(0, 90, 0);
+        var RightPlayerCheckTile = Instantiate(PlayerCheckTile, PreviousTile.transform.position + distanceBetweenTiles * PreviousTile.transform.right, newrotationRight);
 
-                Quaternion newrotationRight = PreviousTile.transform.rotation * Quaternion.Euler(0, 90, 0);
-                var RightPlayerCheckTile = Instantiate(PlayerCheckTile, PreviousTile.transform.position + distanceBetweenTiles * PreviousTile.transform.right, newrotationRight);
+        RightPlayerCheckTile.GetComponent<PlayerChoiceCheck>().IsRight = true;
+        RightPlayerCheckTile.GetComponent<PlayerChoiceCheck>().ChoiceTile = SpawnedChoiceTile;
+        //spawnbothgenerators upper and lower 
+        CurrentLevel++;
+        var LowerLevelpos = PreviousTile.transform.position + (distanceBetweenTiles * (PreviousTile.transform.right * -1f) + (distanceBetweenLevels * (PreviousTile.transform.up * -1f)));
+        var UpperLevelpos = PreviousTile.transform.position + (distanceBetweenTiles * PreviousTile.transform.right + (distanceBetweenLevels * PreviousTile.transform.up));
+        var LeftGeneratorTile = Instantiate(GenerateorTile, LowerLevelpos, newrotationLeft);
+        var RightGeneratorTile = Instantiate(GenerateorTile, UpperLevelpos, newrotationRight);
 
-                RightPlayerCheckTile.GetComponent<PlayerChoiceCheck>().IsRight = true;
-                RightPlayerCheckTile.GetComponent<PlayerChoiceCheck>().ChoiceTile = SpawnedChoiceTile;
-                //spawnbothgenerators upper and lower 
-                CurrentLevel++;
-                var LowerLevelpos = PreviousTile.transform.position + (distanceBetweenTiles * (PreviousTile.transform.right * -1f) + (distanceBetweenLevels * (PreviousTile.transform.up * -1f)));
-                var UpperLevelpos = PreviousTile.transform.position + (distanceBetweenTiles * PreviousTile.transform.right + (distanceBetweenLevels * PreviousTile.transform.up));
-                var LeftGeneratorTile = Instantiate(GenerateorTile, LowerLevelpos, newrotationLeft);
-                var RightGeneratorTile = Instantiate(GenerateorTile, UpperLevelpos, newrotationRight);
-
-                SpawnedChoiceTile.GetComponent<ChoiceManager>().Left = LeftGeneratorTile;
-                LeftGeneratorTile.GetComponent<TileGenerator>().TilesbeforeChoice = totaltiles * 2;
-                SpawnedChoiceTile.GetComponent<ChoiceManager>().Right = RightGeneratorTile;
-                RightGeneratorTile.GetComponent<TileGenerator>().TilesbeforeChoice = totaltiles * 2;
-
-
-
-                CanSpawnChoice = false;
-
-                GetComponent<TileGenerator>().enabled = false;
-                goto End;
-
-            }
-
-
-            //disabletheScript
-
-
-
-
-        }
-
+        SpawnedChoiceTile.GetComponent<ChoiceManager>().Left = LeftGeneratorTile;
+        LeftGeneratorTile.GetComponent<TileGenerator>().TilesbeforeChoice = totaltiles * 2;
+        SpawnedChoiceTile.GetComponent<ChoiceManager>().Right = RightGeneratorTile;
+        RightGeneratorTile.GetComponent<TileGenerator>().TilesbeforeChoice = totaltiles * 2;
 
         
-       
-        
-    End:;
-
     }
-
 }
 
