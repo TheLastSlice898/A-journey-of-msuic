@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public delegate void AddScore(float score);
+    public static event AddScore OnAddScore;
+
     private Rigidbody rb;
     public int lives;
     [SerializeField] CameraTrack cam;
@@ -52,6 +55,7 @@ public class PlayerController : MonoBehaviour
     public void Increasescre()
     {
         tilesran++;
+        OnAddScore.Invoke(100f);
     }
     public void Teleport(Transform Location)
     {

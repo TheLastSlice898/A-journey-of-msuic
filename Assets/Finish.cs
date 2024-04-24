@@ -16,7 +16,7 @@ public class Finish : MonoBehaviour
             GameManager.instance.AnswersStatic = other.gameObject.GetComponent<PlayerController>().PlayerAnswers.ToArray();
             SceneManager.LoadSceneAsync("ScoreScene",LoadSceneMode.Additive);
             other.gameObject.GetComponent<PlayerController>().enabled = false;
-            EditorApplication.isPaused = true;
+            
 
         }
     }

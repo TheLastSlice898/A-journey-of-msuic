@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class TileGenerator : MonoBehaviour
 {
@@ -32,6 +35,7 @@ public class TileGenerator : MonoBehaviour
     [SerializeField] private bool CanSpawnTurn = false;
     [SerializeField] private bool CanSpawnChoice = false;
     [SerializeField] private int turns;
+    [SerializeField] private Range range = new Range();
 
     public int TilesbeforeChoice = 100;
     public int CurrentLevel;
