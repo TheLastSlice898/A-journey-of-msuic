@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf80deab162c544a9f45c0c19e66609, type: 3}
   m_Name: Is This Fast
   m_EditorClassIdentifier: 
-  Question: Is this fast
-  sprite: {fileID: 21300000, guid: dc5e505cac0abe140a538a04574dcd58, type: 3}
-  Popuptext: 'Jazz''s Rythum is casued by its connection to the blues '
+  Question: Does the song feel fast
+  yesorno: 1
+  Popuptext: 'This will be filled with research about the relevent question and a
+    explination into the question. '

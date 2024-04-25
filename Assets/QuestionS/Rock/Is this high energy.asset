@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf80deab162c544a9f45c0c19e66609, type: 3}
   m_Name: Is this high energy
   m_EditorClassIdentifier: 
-  Question: Is this high energy
-  yesorno: 1
-  Popuptext: Yea its kinda heavy
+  Question: Is this low energy
+  yesorno: 0
+  Popuptext: 'This will be filled with research about the relevent question and a
+    explination into the question. '

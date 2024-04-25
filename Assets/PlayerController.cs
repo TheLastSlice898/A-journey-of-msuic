@@ -34,7 +34,22 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Input", MovementInput);
         transform.position += transform.forward * (MovementSpeed * MovementIncrease) * Time.deltaTime;
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.instance._paused = !GameManager.instance._paused;
+        }
+        if (!GameManager.instance._paused)
+        {
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.visible = true;
+        }
+        
+    }
     public void TurnLeft()
     {
         Quaternion currentrotation = transform.rotation;

@@ -21,12 +21,16 @@ public class SceneTransitionScript : MonoBehaviour
     }
     public void LoadSceneAsync(string scenename)
     {
-        SceneManager.LoadSceneAsync(scenename);
+        SceneManager.LoadSceneAsync(scenename, LoadSceneMode.Additive);
     }
 
     public void LoadGame(QuestionGroups questionGroups)
     {
         SceneManager.LoadSceneAsync("TempleGame");
         GameManager.instance.CurrentQuestionGroups = questionGroups;
+    }
+    public void ChangeSongLMAO(AudioClip song)    
+    {
+        GameManager.instance.ChangeSong(song);
     }
 }

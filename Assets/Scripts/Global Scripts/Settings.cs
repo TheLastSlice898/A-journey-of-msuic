@@ -7,43 +7,28 @@ using UnityEngine.Audio;
 
 public class Settings : MonoBehaviour
 {
+    private static Settings _instance;
+    public static Settings instance { get { return _instance; } }
 
-    public bool SoundToggle;
-    public int FullScreenInt;
+    //defult
+
+    private void Awake()
+    {
+        _instance = this;
+        
+    }
+    private void Start()
+    {
+        
     
+
+    }
     // Start is called before the first frame update
 
     // Update is called once per frame
-    void Update()
+    public void SetMasterVolume(float volume)
     {
-        
-        
-        if (SoundToggle)
-        {
-            AudioListener.volume = 1;
-        }
-        else
-        {
-            AudioListener.volume = 0f;
-        }
-
-
-        if (FullScreenInt == 0)
-        {
-            Screen.fullScreenMode = FullScreenMode.MaximizedWindow;
-        }
-        if (FullScreenInt == 1)
-        {
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-        }
-        if (FullScreenInt == 2)
-        {
-            Screen.fullScreenMode = FullScreenMode.Windowed;
-        }
-    }
-
-    public void CheckDropDown()
-    {
-            
+        AudioListener.volume = volume;
+        PlayerPrefs.SetFloat("Volume", volume);
     }
 }

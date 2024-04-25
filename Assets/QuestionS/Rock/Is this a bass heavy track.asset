@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Is this a bass heavy track
   m_EditorClassIdentifier: 
   Question: Is this a bass heavy track
-  yesorno: 0
-  Popuptext: fuck
+  yesorno: 1
+  Popuptext: 'This will be filled with research about the relevent question and a
+    explination into the question. '

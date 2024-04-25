@@ -20,5 +20,8 @@ public class PopupScript : MonoBehaviour
         animator.SetTrigger("Popup");
         GetComponentInChildren<TextMeshProUGUI>().text = Text;
     }
-
+    private void OnDisable()
+    {
+        QuestionScript.OnCallPopup -= PopupSend;    
+    }
 }

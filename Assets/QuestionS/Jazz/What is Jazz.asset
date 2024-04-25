@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf80deab162c544a9f45c0c19e66609, type: 3}
   m_Name: What is Jazz
   m_EditorClassIdentifier: 
-  Question: What is Jaz?
-  yesorno: 1
-  Popuptext: Welllllll fuck
+  Question: Is their 4 beats to the track
+  yesorno: 0
+  Popuptext: 'This will be filled with research about the relevent question and a
+    explination into the question. '
